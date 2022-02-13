@@ -1,8 +1,19 @@
-document.getElementById('deposit-button').addEventListener('click', function () {
-    // put number in deposit input box and get it in console
+function getInputValue(){
     const depositInput = document.getElementById('deposit-input');
     const depositAmountText = depositInput.value;
     const depositAmount = parseFloat(depositAmountText);
+
+    // clear deposit input field
+    depositInput.value = '';
+
+    return depositAmount;
+}
+document.getElementById('deposit-button').addEventListener('click', function () {
+    // put number in deposit input box and get it in console
+    /* const depositInput = document.getElementById('deposit-input');
+    const depositAmountText = depositInput.value;
+    const depositAmount = parseFloat(depositAmountText); */
+    const depositAmount = getInputValue();
 
     // get current deposit $ from deposit input box and set in Diposit$ Area
     const depositTotal = document.getElementById('deposit-total');
@@ -18,8 +29,7 @@ document.getElementById('deposit-button').addEventListener('click', function () 
 
     balanceTotal.innerText = previousBalanceTotal + depositAmount;
 
-    // clear deposit input field
-    depositInput.value = '';
+
 });
 // handle withdraw
 document.getElementById('withdraw-button').addEventListener('click', function () {
